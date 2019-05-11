@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.add_friend_fragment.*
 
 class AddFriendFragment: Fragment() {
     companion object {
@@ -20,6 +21,10 @@ class AddFriendFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnAdd.setOnClickListener{
+            (activity as MainActivity).tampilFriendlistFragment()
+        }
     }
 
     override fun onDestroy() {

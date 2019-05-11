@@ -9,22 +9,26 @@
         tools:context=".MainActivity">
 
 <androidx.recyclerview.widget.RecyclerView
-
     android:id="@+id/myfriend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#FEB2"
     ></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/fabAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@drawable/ic_add_white"
-            tools:layout_editor_absoluteY="511dp"
-            tools:layout_editor_absoluteX="320dp"/>
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="@+id/myfriend"
+            android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.975"
+            app:layout_constraintVertical_bias="0.985"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
