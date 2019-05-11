@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyContacts</string>
+    <string name="action_settings">Settings</string>
+    <string name="tambahteman">Tambah Teman</string>
+    <string-array name="gender_list">
+        <item>Pilih Kelamin</item>
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </string-array>
+</resources>
