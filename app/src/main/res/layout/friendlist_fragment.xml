@@ -12,7 +12,7 @@
     android:id="@+id/myfriend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEB2"
+
     ></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
