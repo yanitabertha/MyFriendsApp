@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:id="@+id/container"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="#FFFFFF">
@@ -37,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textSize="16sp"/>
+                android:textSize="18sp"/>
 
         <TextView
                 android:layout_marginTop="4dp"
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Telp"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
 
     </LinearLayout>
     </LinearLayout>

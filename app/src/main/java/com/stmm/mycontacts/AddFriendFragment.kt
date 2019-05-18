@@ -11,6 +11,9 @@ import com.stmm.mycontacts.data.AppDatabase
 import com.stmm.mycontacts.data.MyFriendDao
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.add_friend_fragment.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class AddFriendFragment : Fragment() {
     companion object {
@@ -38,21 +41,26 @@ class AddFriendFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnAdd.setOnClickListener {
-            (activity as MainActivity).tampilFriendlistFragment()
+            validasiInput()
         }
+        initLocalDB()
     }
 
     private fun initLocalDB() {
         db = AppDatabase.getAppDatabase(activity!!)
         myFriendDao = db?.myFriendDao()
     }
-    private fun setDataSpinnerGender() {
-        val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
-            this,
-            R.array.gender_list, android.R.layout.simple_spinner_dropdown_item
-        )
 
-        spinnerGender.adapter = adapter
+    /*   private fun setDataSpinnerGender() {
+           val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+               this,
+               R.array.gender_list, android.R.layout.simple_spinner_dropdown_item
+           )
+
+           spinnerGender.adapter = adapter
+       } */
+    private fun tampilToast(message: String) {
+        Toast.makeText(activity!!, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun validasiInput() {
@@ -68,20 +76,23 @@ class AddFriendFragment : Fragment() {
             genderInput.equals("Pilih Kelamin") -> tampilToast("Kelamin harus dipilih")
             emailInput.isEmpty() -> edtEmail.error = "Email harus diisi"
             telpInput.isEmpty() -> edtTelp.error = "No Telepon tidak boleh kosong"
-            alamatInput.isEmpty() -> edtAddress.error -> "Alamat tidak boleh kosong"
-
+            alamatInput.isEmpty() -> edtAddress.error = "Alamat tidak boleh kosong"
 
 
             else -> {
-            //  val teman = MyFriend(nama = namaInput, gender = genderInput, email = emailInput, telp = telpInput, alamat = alamatInput)
-            //    tambahDataTeman(teman)
+                //insert ke db
+                val friend = MyFriend(namaInput, genderInput, emailInput, telpInput, alamatInput)
+                tambahDataTeman(friend)
+            }
 
         }
     }
-
-
-    private fun tampilToast(message: String) {
-        Toast.makeText(activity!!, message, Toast.LENGTH_SHORT).show()
+//fungsi untuk menambahkan data teman
+    private fun tambahDataTeman(friend: MyFriend) : Job {
+        return  GlobalScope.launch {
+            myFriendDao?.tambahTeman(friend)
+            (activity as MainActivity). tampilFriendlistFragment()
+        }
     }
 
     override fun onDestroy() {
