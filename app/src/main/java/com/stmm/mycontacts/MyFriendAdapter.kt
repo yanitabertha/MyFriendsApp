@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.my_friends_item.*
 import kotlinx.android.synthetic.main.my_friends_item.view.*
+import kotlinx.coroutines.withContext
 
 class MyFriendAdapter(
     private val context: Context,
@@ -19,10 +21,12 @@ class MyFriendAdapter(
         override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: MyFriend, listener: MyFriendClickListener, position: Int) {
-
             containerView.txtFriendName.text = item.nama
             containerView.txtFriendEmail.text = item.email
             containerView.txtFriendTelp.text = item.telp
+            //     containerView.container.setOnClickListener { listener(item) }
+
+            Glide.with(containerView.context).load(item.image).into(imgProfile)
             containerView.container.setOnLongClickListener(object : View.OnLongClickListener {
                 //artinya jika pada id container (dalam hal ini adalah parentnya) di long click, maka
                 //akan terjadi sebuah activity (dalam hal ini, dialog box)
@@ -32,8 +36,7 @@ class MyFriendAdapter(
                 }
             })
 
-            /*  Glide.with(context).load(item.image).into((imgProfile)
-              containerView.setOnClickListener ( listener(item) )  */
+
         }
     }
 

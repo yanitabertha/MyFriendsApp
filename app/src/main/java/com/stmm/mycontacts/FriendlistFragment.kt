@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 class FriendlistFragment : Fragment() {
 
     lateinit var listTeman: MutableList<MyFriend>
-
     private var db: AppDatabase? = null
     private var myFriendDao: MyFriendDao? = null
     lateinit var adapter: MyFriendAdapter

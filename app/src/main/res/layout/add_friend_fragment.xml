@@ -13,8 +13,26 @@
               android:textColor="#000000"
               android:gravity="center"
               android:fontFamily="sans-serif-medium"
-              />
+    />
 
+    <RelativeLayout android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#CCCCCC"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+    >
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true"
+                  android:text="Ambil Foto"/>
+
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/imgProfile"
+                   android:scaleType="centerCrop"
+        />
+    </RelativeLayout>
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_margin="10dp"

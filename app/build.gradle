@@ -37,6 +37,11 @@ dependencies {
     //ANDROID ROOM
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     kapt 'android.arch.persistence.room:compiler:1.1.1'
+    //KPERMISSION
+    implementation 'com.github.fondesa:kpermissions:1.0.0'
+    //GLIDE
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     //COROUTINES (kayak main mobile legend wlpun masi donlot tp ttp bisa jalankan apk nya)
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
     testImplementation 'junit:junit:4.12'
